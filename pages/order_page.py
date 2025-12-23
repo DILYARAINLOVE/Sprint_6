@@ -87,6 +87,15 @@ class OrderPage(BasePage):
     @allure.step('Нажать кнопку "Заказать" на второй странице')
     def click_order_button(self):
         self.click_element(self.ORDER_BUTTON)
+
+    @allure.step('Заполнить вторую страницу заказа')
+    def fill_second_page(self, date, rental_period, color, comment):
+        """Заполняет вторую страницу формы заказа."""
+        self.enter_date(date)
+        self.select_rental_period(rental_period)
+        self.select_color(color)
+        self.enter_comment(comment)
+        self.click_order_button()
     
     @allure.step('Подтвердить заказ')
     def confirm_order(self):
